@@ -129,16 +129,29 @@
 
 
 1. **GET方法**
-
    1. GET方法提交的数据不安全，数据置于请求行，客户端地址栏可见。
    2. GET方法提交的数据大小有限
    3. GET方法不可以设置书签
-
 2. **POST方法**
-
    1. POST方法提交的数据安全，数据置于消息主体内，客户端不可见
    2. POST方法提交的数据大小没有限制
    3. POST方法可以设置书签
 
-   ​
 
+
+
+
+## iOS 的系统架构？
+
+
+
+iOS的系统架构分为
+
+1. 核心操作层 Core OS layer
+2. 核心服务层 Core Service layer
+3. 媒体层  Media layer
+4. Cocoa 界面服务层 Cocoa Touch Layer
+
+
+
+## 
