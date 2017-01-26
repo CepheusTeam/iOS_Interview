@@ -87,3 +87,45 @@ View 显示用户界面，完成用户交互，是UIView及其子类；
 
 交叉淡化、推挤、显示、覆盖
 
+
+
+
+
+## frame 和 bounds 的区别
+
+
+
+frame 指的是：该 view 在父 view 坐标系统中的位置和大小。（参照点是父亲的坐标系统）//frame:框架、结构
+
+bounds指的是：该 view 在本身坐标系统中的位置和大小。（参照点是本身坐标系统）//bounds:界限 
+
+
+
+## Quatrz2D的绘图功能的三个核心概念是什么并简述其作用
+
+
+
+上下文： 主要用于描述图形写入哪里；
+
+路径：是在图层上绘制的内容
+
+状态：用于保存配置变换的值、填充和轮廓，alpha值等。
+
+
+
+## 有那几种手势通知方法
+
+
+
+```objective-c
+-(void)touchesBegan:(NSSet)touchedwithEvent:(UIEvent)event;
+
+-(void)touchesMoved:(NSSet)touched withEvent:(UIEvent)event;
+
+-(void)touchesEnded:(NSSet)touchedwithEvent:(UIEvent)event;
+
+-(void)touchesCanceled:(NSSet)touchedwithEvent:(UIEvent)event;
+```
+
+
+
