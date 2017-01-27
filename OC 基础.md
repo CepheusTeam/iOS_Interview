@@ -367,5 +367,70 @@ iOS的系统架构分为
 4. Cocoa 界面服务层 Cocoa Touch Layer
 
 
-
 ## 
+
+
+
+## iOS主要提供了几种播放音频的方法
+
+
+
+SystemSound Services
+
+AVAudioPlayer
+
+Audio Queue Services
+
+OpenAL
+
+
+
+## 使用 AVAudioPlayer 累调用哪个框架，使用步骤？
+
+
+
+ACFoundation Framework
+
+步骤：
+
+配置 AVAudioPlayer对象；
+
+实现 AVAudioPlayer 类的委托方法；
+
+控制 AVAudioPlayer 类的对象；
+
+监控音量水平；
+
+回放进度和拖拽播放
+
+
+
+
+
+## Core Foundation 中提供了哪几种操作 Socket 的方法
+
+
+
+CFNetwork、 CFSocket 、 BSD Socket
+
+
+
+## CFSocket 使用有几个步骤
+
+创建 Socket 的上下文
+
+创建 Socket
+
+配置要访问的服务器学习
+
+封装服务器学习
+
+连接服务器
+
+
+
+## 单件实例是什么？
+
+
+
+Foundation 和 Application Kit 框架中的一些类只允许创建单个对象，
