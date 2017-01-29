@@ -434,3 +434,81 @@ CFNetwork、 CFSocket 、 BSD Socket
 
 
 Foundation 和 Application Kit 框架中的一些类只允许创建单个对象，即这些类在当前进程中的唯一实例。举例来说，NSFileManager 和 NSWorkspace 类在使用的时候都是基于进程进行单件对象的实例话。当向这些类请求实例的时候，他们会像我们传递一个单一实例的引用，如果该实例还不存在，则首先进行实例的分配和初始化。单件对象充当控制中心的角色，复制指引或者协调类的各种服务。如果类在概念上只有一个实例（如 NSWorkspace）就应该产生一个单件实例，而不是多个实例；如果将来某一天可能有多个实例，您可以使用单件实例机制，而不是工厂方法或函数。
+
+
+
+
+
+## 获取项目根路径，并在其下创建一个`userData` 的目录
+
+
+
+**获取根路径**
+
+```objective-c
+NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+NSString *documentDirectory = [paths objectAtIndex：0];
+```
+
+**创建文件系统管理器**
+
+```objective-c
+NSFileManager *fileManager = [[NSFileManager alloc] init];
+```
+
+**判断 userData 目录是否存在**
+
+```objective-c
+if(![fileManager fileExistAtPath:[NSString stringWithFormat@"%@/userData",documentDirectory]]) {
+  //不存在，创建一个
+  [fileManager createDirectoryAtPath:[NSStringstringWithFormat:@"%@/userData",documentsDirectory] withIntermediateDirectories:falseattributes:nilerror:nil];
+}
+```
+
+
+
+## OC 中的数字对象都有哪些，简述它们与基本数据类型的区别是什么？
+
+
+
+在 OC 中 NSNumber 是数字对象，可以进行拆装箱操作！
+
+// 将 int 转为 NSNumber
+
+NSNumber *num = [NSNumber numberWithInt:123];
+
+// 得到一个 int
+
+int testNum = [num intValue];
+
+
+
+## 找出一下代码的问题？
+
+
+
+```objective-c
+@implementation Person  
+- (void)setAge:(int)newAge {  
+self.age = newAge;  
+}
+@end
+```
+
+ 死循环。
+
+
+
+## 截取字符串`**20 ****｜****http://www.621life.com**`中`|`字符串前面以及后面的数据，分别输出它们
+
+
+
+```objective-c
+NSString *str = “20|http://www.621life.com”;
+NSRange range = [strrangeOfString:@"|"];
+int location = range.location;
+NSString *str1 = [strsubstringToIndex:location];
+NSString *str2 = [str substringFromIndex:location+1];
+
+```
+
