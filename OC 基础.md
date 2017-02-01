@@ -512,3 +512,114 @@ NSString *str2 = [str substringFromIndex:location+1];
 
 ```
 
+
+
+
+
+## protocol 相关
+
+### 协议的定义
+
+```objective-c
+@protocol 协议名 <NSObject>
+
+	//协议名一般以protocol结束     比如： playGameProtocol
+
+	// <NSObject>是基协议，创建的新协议都必须遵守基协议
+
+@end
+
+```
+
+
+
+### 协议的含义
+
+协议就是用来定义(声明)一大堆的方法
+
+```objective-c
+ 
+     #import "toolsProtocol.h"
+     //协议默认情况下都遵守基协议（NSObject）
+     @protocol runProtocol <NSObject,toolsProtocol>
+     //协议中就是用来定义一大堆的方法声明
+     -(void)start;
+     -(void)stop;
+     -(void)run;
+     @end
+
+```
+
+
+
+
+
+### 协议的继承
+
+如果父类遵守了某个协议，当子类继承父类以后，子类也拥有了父类实现的协议方法
+
+
+
+protocol 中 `@required`（默认，表示必须实现）`@optional`（可选实现）
+
+```objective-c
+@protocol baseProtocol<NSObject>
+  
+  @required //作用表示当前@require 作用域范围内的声明都要实现
+                       //此处要求遵守协议的类，必须实现 eat 方法
+   -(void)eat;
+  
+    @optional   //作用，表示当前@optional 作用域范围内的声明的方法可以实现，也可以不实现
+    -(void)run;
+@end
+```
+
+
+
+
+
+
+
+
+
+### 利用协议实现代理设计模式
+
+
+
+ 5.利用协议实现代理设计模式
+
+ 
+
+    包含进来一个id类型的对象，这个对象名叫delegate，但是这个对象必须遵守协议
+
+     `@property (nonatomic, strong) id<PersonProtocol> delegate;`
+
+ 
+
+ 6. 使用代理设计模式
+
+ 请代理的人：（程序猿）
+
+ 三部曲：
+
+     1>. 写一个协议，把自己不方便或者不会做的事情都列出来(方法列表)
+
+     2>. 包含进来一个id类型的对象，这个对象名叫delegate，但是这个对象必须遵守协议
+
+     3>. 当自己发生一些事情，需要代理帮忙的时候，直接调用代理对应的方法
+
+     
+
+ 当代理人：(HR) 真正做事情
+
+ 三部曲：
+
+     1>. 遵守协议
+
+     2>. 实现协议里面的方法
+
+     3>. 把代理对象 赋值给 请代理的人里面的delegate属性 (main函数)
+
+ 7. protocol的引用方式 类似 @class 的使用方式
+
+    在需要遵守协议的地方,使用@protocol 协议名;
